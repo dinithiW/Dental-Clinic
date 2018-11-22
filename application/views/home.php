@@ -210,7 +210,7 @@ span.psw {
 <button class="open-button" onclick="openForm()">LOGIN</button>
 
 <div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
+  <form action="Home/login" class="form-container" method="post">
     <h1>Login</h1>
     <label for="uname"><b>Usertype</b></label>
     <select name="utype" style="width:100%;height:50px;background-color: #ddd;outline: none;">

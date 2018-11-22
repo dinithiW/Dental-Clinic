@@ -16,7 +16,7 @@ class Home_model extends CI_Model{
 			$db_password=$result->row(0)->password;
 			$id=$result->row(0)->user_id;
 			$arr = array($id,$userType);
-			if(password_verify($password,$db_password)&&(($userType=='Assistant')||($userType=='Patient'))){
+			if(password_verify($password,$db_password)){
 				return $arr;
 				//return true;
 			}
@@ -28,15 +28,7 @@ class Home_model extends CI_Model{
 		}
 		
           
-		//$db_password=$row->password;
-		//$db_password=$result->row(0)->password;
-		//if(($result->num_rows() > 0) && password_verify($password,$db_password)){
-			//return $result->row(0)->id;
-			//return true;
-		//}else{
-			//return false;
-		//}
-
+		
 
 	}
 	public function create_patient(){

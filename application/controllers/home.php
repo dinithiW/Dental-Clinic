@@ -37,14 +37,53 @@ class Home extends CI_Controller {
             // 	echo "something wrong";
             // }
            
-        } 
-    public function cusDash()
-	{
+        }
+        
+    public function login(){
+        $this->form_validation->set_rules('username','Username','trim|required|min_length[3]');
+        $this->form_validation->set_rules('psw','Password','trim|required|min_length[1]');
+        if($this->form_validation->run()==FALSE){
+            $data=array(
+                'errors'=>validation_errors()
+            );
+            $this->session->set_flashdata($data);
+                redirect('Home');
+        }else{
+            $this->load->model('Home_model');
+            $username=$this->input->post('username');
+            $password=$this->input->post('psw');
+            $login=$this->Home_model->login_user($username,$password);
+            if($login){
+                $user_data=array(
+                    'user_id' =>$login[0],
+                    'username'=>$username,
+                    'logged_in'=>true,
+                    'type' =>$login[1]
+                );
+                $this->session->set_userdata($user_data);
+                if($login[1]=='Patient'){
+                    $this->session->set_flashdata('login_success','You are now logged in!!');
+                    redirect('Home/cusDash');
+                }
+                elseif ($login[1]=='Assistant') {
+                    $this->session->set_flashdata('login_success','You are now logged in!!');
+                    redirect('/asstDash');
+                }
+    
+                }else{
+                    $this->session->set_flashdata('login_fail','Sorry you are not allowed!!');
+                    redirect('Home');
+                }
+            }
+    
+        }
+    public function cusDash(){
+	    
 		
 		$this->load->view('cus_navbar');
-	}
+	    }
 
-}
+     }
 
 
 /* End of file home.php */
