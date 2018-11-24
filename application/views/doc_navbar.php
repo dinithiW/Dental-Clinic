@@ -86,7 +86,7 @@
               </div>
               <ul class="navbar-nav flex-column mt-4">
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>Create Appointments</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-check text-light fa-lg mr-3"></i>Create Appointments</a></li>
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Customer/reserveService" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Edit Event Calendar</a></li>
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Update payment details</a></li>
