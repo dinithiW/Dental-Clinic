@@ -46,7 +46,7 @@
 		vertical-align:top;
 		background-color:#DEF;
 	}
-	.apt{
+	.cont{
 		width:80px;height:20px;padding:4px;
 		border:1px solid #999;
 		vertical-align:top; 
@@ -77,7 +77,7 @@
 			<div class="w3-row-padding">
 		    <div class="w3-col m10" style="border: 1px solid lightgrey;border-radius: 3px;margin-right: 16px">
 			<?php echo $calendar;?>
-			<!-- <?php print_r($resData); ?> -->
+			 <?php print_r($resData); ?>
 			<!-- <?php echo $this->session->user_id; ?> -->
 	
 	

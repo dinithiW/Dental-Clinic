@@ -45,6 +45,19 @@ class Patient extends CI_Controller {
 		 $data['month']=$month;
 		$this->load->view('cusAppointments',$data); 
 	}
+
+	public function viewAppoints(){
+
+		$this->load->model('Patient_model');
+		$data['resData']=$this->Patient_model->getReservationDetails();
+		$this->load->view('myAppointments',$data);
+	}
+
+	public function deleteAppoint($id){
+		$this->load->model('Patient_model');
+		$this->Patient_model->delAppointment($id);
+		redirect('../Patient/viewAppoints');
+	}
 	public function serviceHistory(){
 		$this->load->model("Customer_model");
 		$userid=$this->session->user_id;
