@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends CI_Controller {
+class Patient extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,18 +28,18 @@ class Customer extends CI_Controller {
 		$data['cusData']=$this->Customer_model->getCustomerData($userid);
 		$this->load->view('customer_editProfile',$data); 
 	}
-	public function reserveService($year=null,$month=null){
+	public function reserveTreatment($year=null,$month=null){
 		if(!$year){
 			$year=date("Y");
 		}
 		if(!$month){
 			$month=date("m");
 		}
-		 $this->load->model('Customer_model');
-         $data['calendar']=$this->Customer_model->generate($year,$month);
-		// $userid=$this->session->user_id;
-		// $data['cusData']=$this->Customer_model->getCustomerData($userid);
-		// $data['resData']=$this->Customer_model->getReservations($year,$month);
+		 $this->load->model('Patient_model');
+         $data['calendar']=$this->Patient_model->generate($year,$month);
+		 $userid=$this->session->user_id;
+		// $data['cusData']=$this->Patient_model->getPatientData($userid);
+		 $data['resData']=$this->Patient_model->getReservations($year,$month);
 		// $data['detRes']=$this->Customer_model->getReservationDetails();
 		 $data['year']=$year; 
 		 $data['month']=$month;
@@ -83,18 +83,21 @@ class Customer extends CI_Controller {
 	}
 
 	public function Reservation(){
-		$this->load->model("Customer_model");
+		$this->load->model("Patient_model");
+		$appt_date=$this->input->post('res_date');
+		$time_slot=$this->input->post('time_slot');
+		$lastApptno=$this->Patient_model->getApptNo($appt_date,$time_slot);
 		$userid=$this->session->user_id;
 		$data = array(
-			'cus_id'=> $userid,
-			'veh_no' => $this->input->post('veh_no'),
-			'reservation_date' => $this->input->post('res_date'),
-			'add_date' => date("Y/m/d"),
-			'title' => $this->input->post('title')
+			'patient_id'=> $userid,
+			'appointment_date' => $this->input->post('res_date'),
+			'time' => $this->input->post('time_slot'),
+			'appt_no' => $lastApptno+1 
 		);
-		$this->customerDashboard_model->addReservation($data);
-		$this->session->set_flashdata('reservation_success','Reservation Added Successfully!');
-		redirect('index.php/customer/reserveService');
+		$this->Patient_model->addReservation($data);
+		$this->session->set_flashdata('reservation_success','Appointment Added Successfully! 
+		Your appaointment number is '.$lastApptno+1);
+		redirect('../Patient/reserveTreatment');
 	}
 
 	public function Reschedule(){

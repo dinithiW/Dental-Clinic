@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-Class Customer_model extends CI_Model{
+Class Patient_model extends CI_Model{
 	
 	public function editProfile($nic,$data){
 		$this->load->database("");
@@ -9,11 +9,11 @@ Class Customer_model extends CI_Model{
 		$this->db->update('customer', $data);
 		
 	}
-	public function getCustomerData($userid){
+	public function getPatientData($userid){
 		$this->load->database("");
 		$this->db->select("*");
-		$this->db->from("customer");
-		$this->db->where('id',$userid);
+		$this->db->from("patient");
+		$this->db->where('patient_id',$userid);
 		$result = $this->db->get();
 		return $result->result();
 		
@@ -104,11 +104,13 @@ Class Customer_model extends CI_Model{
 	}
 	//calendar generation
 	public function generate($year,$month){
+
+		$appointments=$this->getReservationDetails();
 	
         $conf=array(
             'start_day'=>'sunday',
 			'show_next_prev'=>true,
-            //'next_prev_url'=>base_url().'Customer/reserveService'
+            'next_prev_url'=>base_url().'Patient/reserveTreatment'
 		);
 		$conf['template']='
 		{table_open}<table border="0" cellpadding="0" cellspacing="0" class="calendar">{/table_open}
@@ -130,15 +132,18 @@ Class Customer_model extends CI_Model{
         {cal_cell_start_today}<td>{/cal_cell_start_today}
         {cal_cell_start_other}<td class="other-month">{/cal_cell_start_other}
 
+		
+
 		{cal_cell_content}
 		<div class="day_num">{day}</div>
-		<div class="cont">{content}</div>
+		<div class="apt">booking</div>
 		{/cal_cell_content}
 		{cal_cell_content_today}
 		<div class="highlight day_num">{day}</div>
-		<div class="content">{content}</div>
+		<div class="apt">booking</div>
 		{/cal_cell_content_today}
 
+		
         {cal_cell_no_content}<div class="nCont" >{day}</div>{/cal_cell_no_content}
 		{cal_cell_no_content_today}
 		<div class="highlight day_num">{day}</div>	
@@ -169,14 +174,29 @@ Class Customer_model extends CI_Model{
 		}
 	}
 
+	public function getApptNo($appt_date,$time_slot){
+		$this->load->database("");
+		$this->db->select('*');
+		$this->db->from('appointments');
+		$this->db->where('appointment_date',$appt_date);
+		$this->db->where('time',$time_slot);
+		$this->db->order_by('patient_id','desc')->limit(1); 
+		$result=$this->db->get();
+		if($result){
+			return $result->row('appt_no');
+		}else{
+			return 0;
+		}
+	}
+
 	public function getReservations($year,$month){
 		$userid=$this->session->user_id;
-		$maxres=2;
+		$maxres=10;
 		$count;
 		$day;
 		
 		$this->load->database("");
-		$result=$this->db->select("*")->from("appointments")->like('appointment_date',$year.'/'.$month,'after')->get();
+		$result=$this->db->select("*")->from("appointments")->like('appointment_date',$year.'-'.$month,'after')->get();
 		//$this->db->from("reservations")->like('reservation_date','$year/$month','after');
 		//$result = $this->db->get();
 		$cal_data=array();
@@ -184,7 +204,7 @@ Class Customer_model extends CI_Model{
 			$d;
 			$day=substr($row->appointment_date,8,2);
 			$count=0;
-			if($userid==$row->cus_id){
+			if($userid==$row->patient_id){
 				$cal_data[substr($row->appointment_date,8,2)]="booking";
 				$d=$cal_data[substr($row->appointment_date,8,2)];
 				
@@ -200,9 +220,7 @@ Class Customer_model extends CI_Model{
 				$cal_data[substr($row->appointment_date,8,2)]="N/A";
 			}else{
 				$cal_data[substr($row->appointment_date,8,2)]="booking N/A";
-			}
-			
-			
+			} 
 			
 		}
 		}
@@ -219,11 +237,12 @@ Class Customer_model extends CI_Model{
 		$this->load->database("");
 		$userid=$this->session->user_id;
 		$this->db->select("*");
-		$this->db->from("reservations");
-		$this->db->where("cus_id",$userid);
+		$this->db->from("appointments");
+		$this->db->where("patient_id",$userid);
 		$result = $this->db->get();
 		return $result->result();
-	}	
+	}
+	
 	
 }
 ?>
