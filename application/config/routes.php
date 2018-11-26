@@ -55,3 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Doctor'] = 'Doctor/index';
 $route['Doctor/createAppointment'] = 'Doctor/createAppointment';
+$route['Doctor/patientRecords'] = 'Doctor/patientRecords';
+$route['Doctor/view'] = 'Doctor/viewRecords';

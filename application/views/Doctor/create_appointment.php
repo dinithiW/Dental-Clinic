@@ -75,7 +75,7 @@
 			<form class="form-horizontal" action="/action_page.php">
 				  <div class="form-group">
 				  	<br/>
-				    <label class="control-label col-sm-2" for="email">Email:</label>
+				    <label class="control-label col-sm-2" for="email">Name</label>
 				    <div class="col-sm-8">
 				      <input type="email" class="form-control" id="email" placeholder="Enter email">
 				    </div>

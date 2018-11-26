@@ -16,6 +16,16 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_patient_records');
 	}
+
+	public function viewRecords(){
+		
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getPatientRecords();
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_patient_records',$data);
+
+	}
+	
 }
 
 ?>

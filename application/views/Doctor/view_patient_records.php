@@ -67,7 +67,7 @@
 <body>
 	<div class="w3-content" style="max-width:2000px;margin-top:49px;margin-left:300px;">
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
-			<form class="form-horizontal" action="/action_page.php">
+		
 				  	<!-- <div class="form-group ">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Patient ID</label>
@@ -91,19 +91,24 @@
                 <div class="box-header">
                     <h3 class="box-title">Patient Records</h3>
                     <div class="box-tools">
-                        <form action="" method="POST" id="searchList">
+                        <form method = "POST" action= "<?=base_url('Doctor/view')?>"  >
                             <div class="input-group">
-                              <input type="text" name="searchText"  class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                              <div class="input-group-btn">
-                                <button class="btn btn-sm btn-default searchList"><i class="fa fa-search"></i></button>
-                              </div>
+                              <!-- <input type="text" name="patient_id"  id="patient_id"class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/> -->
+                              <div class="col-sm-8"> 
+                    <input type="text" class="form-control" name="la" placeholder="Enter User ID">
+                  </div>
+                              <div class="form-group"> 
+                  <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Search</button>
+                  </div>
+                </div>
                             </div>
                         </form>
                     </div>
                 </div><!-- /.box-header -->
                 <br/>
                 <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover">
+                  <table class="table table-hover" >
                     <tr>
                       <th>Treatment</th>
                       <th>Date</th>
@@ -111,27 +116,27 @@
                       
                       <!-- <th class="text-center">Actions</th> -->
                     </tr>
-                    <!-- <?php
-                    if(!empty($userRecords))
+
+                    
+                    <?php
+                    if(!empty($records))
                     {
-                        foreach($userRecords as $record)
-                        {
-                    ?> -->
-                    <!-- <tr>
-                      <td><?php echo $record->userId ?></td>
-                      <td><?php echo $record->name ?></td>
-                      <td><?php echo $record->email ?></td>
-                      <td><?php echo $record->mobile ?></td>
-                      <td><?php echo $record->role ?></td> -->
+                        foreach ($records as $rec){
+                    ?> 
+                    <tr>
+                      <td><?php echo $rec->treatment?></td>
+                      <td><?php echo $rec->date ?></td>
+                      <td><?php echo $rec->remarks ?></td>
+                      <!-- 
                       <td class="text-center">
-                         <!--  <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
                           <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>"><i class="fa fa-trash"></i></a> -->
-                      </td>
+                      
                     </tr>
-                   <!--  <?php
+                    <?php
                         }
                     }
-                    ?> -->
+                    ?> 
                   </table>
                   
                 </div><!-- /.box-body -->
@@ -139,18 +144,17 @@
               </div><!-- /.box -->
             </div>
         </div>
-				  <div class="form-group"> 
+				  <!-- <div class="form-group"> 
 				    <div class="col-sm-offset-2 col-sm-10">
-				      <!-- <div class="checkbox">
+				       <div class="checkbox">
 				        <label><input type="checkbox"> Remember me</label>
-				      </div> -->
-				    </div>
-				  </div>
+				      </div> 
+				    </div>				  </div>
 				  <div class="form-group"> 
 				    <div class="col-sm-offset-2 col-sm-10">
 				      <button type="submit" class="btn btn-default">Submit</button>
 				    </div>
-				  </div>
+				  </div> -->
 </form>
 			
 		</div>
