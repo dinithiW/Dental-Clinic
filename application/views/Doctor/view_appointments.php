@@ -66,9 +66,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		
 
     <div class="w3-container">
-    <form class="form-inline" action="/action_page.php">
+    <form class="form-inline" action="../Doctor/todayAppoints" method="post">
   <label for="email">Date:</label>
-  <input type="email" id="email" placeholder="Enter email" name="email">
+  <input type="text" id="email" placeholder="Enter email" name="date" value="<?php echo date("Y-m-d");?> ">
   <label for="email">Tme Slot:</label>
   <select class="w3-input w3-col m3" placeholder="" name="time_slot" required>
 
@@ -84,6 +84,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </form>
   <br><br>
   <table class="w3-table-all">
+  <!-- <?php print_r($tAppoints);?> -->
     <thead>
       <tr class="w3-light-grey w3-hover-red">
         <th>Appt No</th>
@@ -92,31 +93,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
         <th>Age</th>
       </tr>
     </thead>
-    <?php if (isset($services)){ ?> 
-     <?php foreach($services as $ser){ ?>
+    <?php if (isset($tAppoints)){ ?> 
+     <?php foreach($tAppoints as $t){ ?>
     <tr class="w3-hover-green">
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-      <td>50</td>
+      <td><?php echo $t->appt_no;?></td>
+      <td><?php echo $t->first_name;?></td>
+      <td><?php echo $t->last_name;?></td>
+      <td><?php echo $t->age;?></td>
+      
     </tr>
     <?php } ?>
 	 <?php } ?> 
-    <tr class="w3-hover-blue">
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
-    <tr class="w3-hover-black">
-      <td>Adam</td>
-      <td>Johnson</td>
-      <td>67</td>
-    </tr>
-    <tr class="w3-hover-text-green">
-      <td>Bo</td>
-      <td>Nilson</td>
-      <td>35</td>
-    </tr>
+   
   </table>
 </div>
 	</div>
