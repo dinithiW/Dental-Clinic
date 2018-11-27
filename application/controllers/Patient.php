@@ -28,6 +28,8 @@ class Patient extends CI_Controller {
 		$data['pData']=$this->Patient_model->getPatientData($userid);
 		$this->load->view('editProfile_view',$data); 
 	}
+
+	
 	public function reserveTreatment($year=null,$month=null){
 		if(!$year){
 			$year=date("Y");
@@ -64,14 +66,7 @@ class Patient extends CI_Controller {
 		$this->Patient_model->delAppointment($id);
 		redirect('../Patient/viewAppoints');
 	}
-	public function serviceHistory(){
-		$this->load->model("Customer_model");
-		$userid=$this->session->user_id;
-		$vehicle_no=$this->input->post('vehicle_no');
-		$data['vehicleData']=$this->Customer_model->getVehicleData($userid);
-		$data['service']=$this->Customer_model->getServiceHistory($vehicle_no);
-		$this->load->view('customer_serviceHistory',$data);
-	}
+	
 	public function editProfileDetails(){
 		$this->load->model("Patient_model");
 		$id= $this->session->user_id;
@@ -95,12 +90,7 @@ class Patient extends CI_Controller {
 		$this->Patient_model->changePassword($old,$encripted_new);
 		redirect('Patient/editProfile');
 	}
-	public function getServiceHistory(){
-		$this->load->model("Customer_model");
-		$vehicle_no=$this->input->post('vehicle_no');
-		$data['serviceHis']=$this->Customer_model->getServiceHistory($vehicle_no);
-		$this->load->view('customer_serviceHistory',$data); 
-	}
+
 
 	public function Reservation(){
 		$this->load->model("Patient_model");
@@ -120,17 +110,7 @@ class Patient extends CI_Controller {
 		redirect('../Patient/reserveTreatment');
 	}
 
-	public function Reschedule(){
-		$this->load->model("Customer_model");
-		$id= $this->input->post('id');
-		$data=array(
-			'title'=>$this->input->post('title'),
-			'reservation_date' => $this->input->post('re_date')
-		);
-		$this->Customer_model->RescheduleRes($id,$data);
-		$this->session->set_flashdata('reschedule_success','Rescheduled Successfully!');
-		redirect('index.php/customer/reserveService');
-	}
+	
 
 	public function logout(){
 		$this->session->sess_destroy();
