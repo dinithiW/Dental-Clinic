@@ -30,6 +30,35 @@ body, html {
 }
 
 
+    body {
+      background: #111;
+    }
+    .hidden {
+      opacity:0;
+    }
+    .console-container {
+
+      font-family:Khula;
+      font-size:4em;
+      text-align:center;
+      height:200px;
+      width:600px;
+      display:block;
+      position:absolute;
+      color:white;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      margin:auto;
+    }
+    .console-underscore {
+       display:inline-block;
+      position:relative;
+      top:-0.14em;
+      left:10px;
+    }
+
 
 /* Bordered form */
 form {
@@ -107,6 +136,11 @@ span.psw {
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
+
+#home{
+    background-image: url("assets/images/header_background.jpg");
+}
+
 .open-button {
   background-color: #555;
   color: white;
@@ -172,6 +206,10 @@ span.psw {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+.form_background{
+    background-image: url("assets/images/form_back.jpg");
 }
 
 </style>
@@ -246,11 +284,71 @@ function closeForm() {
 
   
   </div>
+    <div style="background-image: url('assets/images/form_back.jpg');">
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-grey" style="font-size:90px">Dental<br>Clinic</span>
+    <span class="w3-text-dark-gray" style="font-size:90px">Dental<br>Clinic</span>
   </div>
+        <div class='console-container w3-margin-bottom'>
+            <span id='text'></span>
+            <div class='console-underscore' id='console'>
+            &#95;
+            </div>
+        </div>
+    <script>
+        consoleText(['Best Service', 'High Experinces', 'Fast Services'], 'text',['tomato','rebeccapurple','black']);
+
+        function consoleText(words, id, colors) {
+          if (colors === undefined) colors = ['#fff'];
+          var visible = true;
+          var con = document.getElementById('console');
+          var letterCount = 1;
+          var x = 1;
+          var waiting = false;
+          var target = document.getElementById(id)
+          target.setAttribute('style', 'color:' + colors[0])
+          window.setInterval(function() {
+
+                if (letterCount === 0 && waiting === false) {
+                  waiting = true;
+                  target.innerHTML = words[0].substring(0, letterCount)
+                  window.setTimeout(function() {
+                        var usedColor = colors.shift();
+                        colors.push(usedColor);
+                        var usedWord = words.shift();
+                        words.push(usedWord);
+                        x = 1;
+                        target.setAttribute('style', 'color:' + colors[0])
+                        letterCount += x;
+                        waiting = false;
+                  }, 1000)
+                } else if (letterCount === words[0].length + 1 && waiting === false) {
+                  waiting = true;
+                  window.setTimeout(function() {
+                        x = -1;
+                        letterCount += x;
+                        waiting = false;
+                  }, 1000)
+                } else if (waiting === false) {
+                  target.innerHTML = words[0].substring(0, letterCount)
+                  letterCount += x;
+                }
+          }, 120)
+          window.setInterval(function() {
+                if (visible === true) {
+                  con.className = 'console-underscore hidden'
+                  visible = false;
+
+                } else {
+                  con.className = 'console-underscore'
+
+                  visible = true;
+                }
+          }, 400)
+        }
+    </script>
   <div class="w3-display-bottomright w3-center w3-padding-large">
     <span class="w3-text-white"></span>
+  </div>
   </div>
 </header>
 
@@ -262,30 +360,48 @@ function closeForm() {
   <div class="w3-content" style="max-width:700px">
 
 
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h5>
 
 
-    <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
-    <div class="w3-panel w3-leftbar w3-light-grey">
-      <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
-      <p>Chef, Coffeeist and Owner: Liam Brown</p>
+    <h4 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h4>
+    <b>Our History</b>
+    <p>Lanka Hospitals Corporation Ltd commenced operations in Sri Lanka on 7th June 2002, under the brand name of
+        Apollo Hospitals, a part of the chain of Apollo Hospitals founded by the renown Dr. Pratap C. Reddy in India.
+        As the only purpose built private hospital of its kind in Sri Lanka, Apollo Colombo revolutionised Sri 
+        Lanka’s healthcare service, and today under the brand Lanka Hospitals, we continue to dominate and lead the 
+        healthcare sector. Ours is still considered to be the best health care facility in the country.</p>
+    <p>Lanka Hospitals Corporation Ltd commenced operations in Sri Lanka on 7th June 2002, under the brand name
+        of Apollo Hospitals, a part of the chain of Apollo Hospitals founded by the renown Dr. Pratap C. Reddy in
+        India. As the only purpose built private hospital of its kind in Sri Lanka, Apollo Colombo revolutionised
+        Sri Lanka’s healthcare service, and today under the brand Lanka Hospitals, we continue to dominate and lead
+        the healthcare sector. Ours is still considered to be the best health care facility in the country.</p>
+    <div class="w3-panel w3-leftbar w3-blue">
+        <b>Our Promise</b>
+      <p><i>“We believe that every person has the right to be treated with utmost respect and consideration
+              Therefore at Lanka Hospitals we care about our patients We care about their families who are anxious
+              and concerned. We care about our colleagues and how we as a team provide the best care to our patients.
+              Because we care, we will be sincere, compassionate and sensitive to make a difference in the lives we
+              touch!”</i></p>
+
     </div>
     <img src="<?php echo base_url(); ?>assets/images/dental-gal.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
     <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
-    <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
+    <p><strong>Address:</strong> 14, Maligawaththa Street, Homagama</p>
+    <div class="w3_agile_map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63378.11147625165!2d79.9657114444197!3d6.874787748670044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2518c83a3640b%3A0x9aa90a55a3958287!2sDental+Clinic+HOMAGAMA!5e0!3m2!1sen!2slk!4v1543343211630" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 
+
 <!-- Menu Container -->
-<div class="w3-container" id="menu">
+<div class="w3-container w3-gray" id="menu">
   <div class="w3-content" style="max-width:1200px">
  
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">OUR SERVICES</span></h5>
   
    <!-- collection -->
    <section class="bg-secondary py-4">
-    <div class="container-fluid">
+    <div class="container-fluid w3-blue">
       <!-- title -->
       <div class="row text-white text-center">
         <div class="col m-4">
@@ -349,12 +465,15 @@ function closeForm() {
   </section>
   <!-- end of collection -->
   </div>
+    <br><br><br>
 </div>
 
 <!-- Contact/Area Container -->
+<div class="form_background">
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:600px">
   <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">REGISTER</span></h5>
+  <div style="background-color: #ccc;">
   <form action="Home/register" method="post">
   <div class="imgcontainer">
     <img src="<?php echo base_url(); ?>assets/images/img-3.jpg" alt="Avatar" class="avatar" style="width:200px;height:200px;">
@@ -402,8 +521,9 @@ function closeForm() {
   </div>
 </form>
   </div>
+  </div>
 </div>
-
+</div>
 <!-- End page content -->
 </div>
 

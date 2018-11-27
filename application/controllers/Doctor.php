@@ -165,6 +165,7 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 	}
 
+
 	public function addService(){
 		$this->load->model('Doctor_model');
 		$this->Doctor_model->addService();
@@ -176,6 +177,7 @@ class Doctor extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('../Home');
 	}
+
 
 
 }

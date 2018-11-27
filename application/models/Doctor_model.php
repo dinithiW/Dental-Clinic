@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 Class Doctor_model extends CI_Model{
 	
 
+
 public function __construct() {
 		parent::__construct();
 		$this->load->database();
 	}
 
-public $paymentVar = 45;
 
         public function getInventory(){
             $query = $this->db->get('inventory');
@@ -31,9 +31,9 @@ public $paymentVar = 45;
             
         }
 
+
 	
 
-	public $success = 20;
 
 	public function getPatientRecords(){
 
