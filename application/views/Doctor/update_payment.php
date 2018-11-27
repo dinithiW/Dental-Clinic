@@ -100,15 +100,20 @@
                     {
                         foreach ($records as $rec){
                     ?> 
-
-                    <option><?php echo $rec->service_name?></option>
-                                            }
+                    <tr>
+                      <option><?php echo $rec->service_name?></option>
+                      
+                      <!-- 
+                      <td class="text-center">
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>"><i class="fa fa-trash"></i></a> -->
+                      
+                    </tr>
+                    <?php
+                        }
                     }
                     ?> 
-        <option></option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        
       </select>
 				    </div>
 				  </div>
