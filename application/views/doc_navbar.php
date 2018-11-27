@@ -92,13 +92,13 @@
 
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
 
-                <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Customer/reserveService" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Edit Event Calendar</a></li>
+                <!-- <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Customer/reserveService" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Edit Event Calendar</a></li> -->
 
                 <li class="nav-item"><a href=<?= base_url("Doctor/viewPayments")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Payments</a></li>
 
                 <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>View payment records</a></li> -->
 
-                <li class="nav-item"><a href=<?= base_url("Doctor/patientRecords")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>View patient records</a></li>
+                <li class="nav-item"><a href=<?= base_url("Doctor/patientRecords")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>View Patient History</a></li>
 
                 <li class="nav-item"><a href=<?= base_url("Doctor/services")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Manage services</a></li>
 

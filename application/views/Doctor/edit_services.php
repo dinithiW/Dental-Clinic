@@ -85,9 +85,9 @@
 				    <label class="control-label col-sm-2" for="email">Service Name</label>
 				    <div class="col-sm-8">
 				    	<?php if($update != true): ?>
-				      <input required type="text" class="form-control" id="email" placeholder="Enter email" name = "service_name"value = <?php if(!empty($records))echo $records->service_name ?>>
+				      <input required type="text" class="form-control" id="email" placeholder="Enter service name" name = "service_name"value = <?php if(!empty($records))echo $records->service_name ?>
 				      <?php else:?>
-				      	<input required type="text" class="form-control" id="email" placeholder="Enter email" name = "service_name"/> 
+				      	<input required type="text" class="form-control" id="email" placeholder="Enter service name" name = "service_name"/> 
 				  <?php endif?>
 
 				    </div>
@@ -96,9 +96,9 @@
 				    <label class="control-label col-sm-2" for="pwd">Price</label>
 				    <div class="col-sm-8"> 
 				    	<?php if($update != true): ?>
-				      <input required type="number" class="form-control" id="pwd" placeholder="Enter price" name = "price"value = <?php if(!empty($records)) echo $records->price ?>
+				      <input required type="number" class="form-control" id="pwd" placeholder="Enter price" oninput="this.value = Math.abs(this.value)" name = "price" min="0" value = <?php if(!empty($records)) echo $records->price ?>
 				      <?php else:?>
-				      	<input required type="number" class="form-control" id="pwd" placeholder="Enter price" name = "price">
+				      	<input required type="number" class="form-control" id="pwd" placeholder="Enter price" oninput="this.value = Math.abs(this.value)" name = "price" min="0">
 				  <?php endif?>
 				    </div>
 				  </div>

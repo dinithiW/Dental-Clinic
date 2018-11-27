@@ -46,6 +46,20 @@ public function __construct() {
         return $query->result();
 	}
 
+	public function getTodaysAppoints(){
+        $today=$this->input->post("date");
+        $time=$this->input->post("time_slot");
+        $this->load->database("");
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->join('patient', 'appointments.patient_id = patient.patient_id','left');
+        $this->db->where('appointment_date',$today);
+        $this->db->where('time',$time);
+        $r=$this->db->get();
+        return $r->result();
+
+    }
+    
 	public function getServices(){
         $query = $this->db->get('services');
         return $query->result();

@@ -125,8 +125,10 @@ class Doctor extends CI_Controller {
 		$data['service_id'] = $service_id;
 		$data['records'] = $this->Doctor_model->updateService($service_id);
 		$data['vari'] = $this->Doctor_model->success;
-		$this->load->view('Doctor/edit_services',$data);
-		$this->load->view('doc_navbar');
+
+		$this->viewServices();
+		/*$this->load->view('Doctor/view_services');
+		$this->load->view('doc_navbar');*/
 	}
 
 
