@@ -164,9 +164,12 @@ span.psw {
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
+<<<<<<< HEAD
 #home{
     background-image: url("assets/images/header_background.jpg");
 }
+=======
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
 .open-button {
   background-color: #555;
   color: white;
@@ -353,6 +356,7 @@ function closeForm() {
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
+<<<<<<< HEAD
     <h4 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h4>
     <b>Our History</b>
     <p>Lanka Hospitals Corporation Ltd commenced operations in Sri Lanka on 7th June 2002, under the brand name of
@@ -372,8 +376,16 @@ function closeForm() {
               and concerned. We care about our colleagues and how we as a team provide the best care to our patients.
               Because we care, we will be sincere, compassionate and sensitive to make a difference in the lives we
               touch!”</i></p>
+=======
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CLINIC</span></h5>
+    <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+      <p>Chef, Coffeeist and Owner: Liam Brown</p>
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
     </div>
-    <img src="<?php echo base_url(); ?>assets/images/dental-gal.jpg" style="width:100%;max-width:1000px" class="w3-margin-top"/>
+    <img src="<?php echo base_url(); ?>assets/images/dental-gal.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
     <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
     <p><strong>Address:</strong> 14, Maligawaththa Street, Homagama</p>
     <div class="w3_agile_map">

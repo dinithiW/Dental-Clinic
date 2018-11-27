@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class Doctor_model extends CI_Model{
 	
+<<<<<<< HEAD
+=======
+
+public function __construct() {
+		parent::__construct();
+		$this->load->database();
+	}
+
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
         public function getInventory(){
             $query = $this->db->get('inventory');
             return $query->result();
@@ -22,10 +31,15 @@ Class Doctor_model extends CI_Model{
             redirect('Doctor/inventoryManage');
             
         }
+<<<<<<< HEAD
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();
 	}
+=======
+
+	
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
 
 	public $success = 20;
 
@@ -40,8 +54,27 @@ Class Doctor_model extends CI_Model{
 
         $query = $this->db->get();
         return $query->result();
-	}
 
+    }
+    
+    
+
+	public function getTodaysAppoints(){
+
+        $today=$this->input->post("date");
+        $time=$this->input->post("time_slot");
+        $this->load->database("");
+        $this->db->select('*');
+        $this->db->from('appointments');
+        $this->db->join('patient', 'appointments.patient_id = patient.patient_id','left');
+        $this->db->where('appointment_date',$today);
+        $this->db->where('time',$time);
+        $r=$this->db->get();
+        return $r->result();
+
+    }
+
+    
 	public function getServices(){
         $query = $this->db->get('services');
         return $query->result();
@@ -81,13 +114,7 @@ $this->db->replace('services', $data);
 	return $success;
 	}
 
-	//yet to implement
-	public function deleteService(){
-
-		$this->load->database();
-        $query = $this->db->get('services');
-        return $query->result();
-	}
+	
 
 	public function viewPayments(){
 		$patient_id = $_POST['patient_id'];
@@ -109,9 +136,28 @@ $this->db->replace('services', $data);
 		echo"$param1";
 	}
 
+	public function deleteService($service_id){
+		$this->db->where('service_id', $service_id);
+		$this->db->delete('services');
+	}
+
+	public function addService(){
+		$array = array(
+        'service_name' => $_POST['service_name'],
+        'price' => $_POST['price'],
+        'instalments' => $_POST['instalments']
+);
+
+$this->db->set($array);
+$this->db->insert('services');
+	}
 
 
 
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
 
 ?>

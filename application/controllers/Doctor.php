@@ -77,6 +77,20 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_patient_records',$data);
 	}
+
+	public function viewAppointments(){
+		
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_appointments');
+	}
+
+	public function todayAppoints(){
+		$this->load->model('Doctor_model');
+		$data['tAppoints'] = $this->Doctor_model->getTodaysAppoints();
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_appointments',$data); 
+
+	}
 	
 	public function viewServices(){
 		
@@ -125,9 +139,44 @@ class Doctor extends CI_Controller {
 		$data['service_id'] = $service_id;
 		$data['records'] = $this->Doctor_model->updateService($service_id);
 		$data['vari'] = $this->Doctor_model->success;
-		$this->load->view('Doctor/edit_services',$data);
+
+		$this->viewServices();
+		/*$this->load->view('Doctor/view_services');
+		$this->load->view('doc_navbar');*/
+	}
+
+
+
+	public function deleteService($service_id){
+		$this->load->model('Doctor_model');
+		$this->Doctor_model->deleteService($service_id);
+		
+		$this->viewServices();
+		/*$this->load->view('Doctor/view_services');
+		$this->load->view('doc_navbar');*/
+	}
+
+	public function addServiceHome(){
+		$this->load->view('Doctor/add_service');
 		$this->load->view('doc_navbar');
 	}
+<<<<<<< HEAD
+=======
+
+	public function addService(){
+		$this->load->model('Doctor_model');
+		$this->Doctor_model->addService();
+
+		$this->viewServices();
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('../Home');
+	}
+
+
+>>>>>>> b3143fb96d46e9168917e0caf944ad6a28dffcb2
 }
 
 ?>

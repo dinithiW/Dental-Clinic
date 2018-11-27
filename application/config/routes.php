@@ -63,4 +63,8 @@ $route['Doctor/viewPayments'] = 'Doctor/viewPayments';
 $route['Doctor/updatePayment'] = 'Doctor/updatePayment';
 $route['Doctor/editService/(:num)'] = "Doctor/editService/$1";
 $route['Doctor/updateService/(:num)'] = "Doctor/updateService/$1";
+$route['Doctor/deleteService/(:num)'] = "Doctor/deleteService/$1";
+$route['Doctor/addService'] = "Doctor/addService";
+$route['Doctor/addServiceHome'] = "Doctor/addServiceHome";
+
 //$route['Doctor/instalments'] = 'Doctor/';

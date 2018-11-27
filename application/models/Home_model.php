@@ -63,12 +63,7 @@ class Home_model extends CI_Model{
 		}
 	}
  
-	public function find_customer(){
-		$this->load->database("");
-		$this->db->where('nic',$this->input->post('nic'));
-		$r=$this->db->get('customer');
-		return $r->result();
-	}
+	
 	
 }
  

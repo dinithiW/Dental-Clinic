@@ -90,8 +90,9 @@
               <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Services</h3>
+
                     <div class="box-tools">
-                        
+                        <a href="<?php echo base_url().'Doctor/addServiceHome/'; ?>"><button type="button" class="btn btn-primary" >Add New</button></a>
                     </div>
                 </div><!-- /.box-header -->
                 <br/>
@@ -118,7 +119,7 @@
                       <td><?php echo $rec->price ?></td>
                       <td><?php echo $rec->instalments ?></td>
                       <td class="text-center"><a href="<?php echo base_url().'Doctor/editService/'.$rec->service_id; ?>"><button type="button" class="btn btn-info" style="height:30px;">Edit</button></a>
-                      <button type="button" class="btn btn-danger" style="height:30px;">Delete</button>
+                      <a href="<?php echo base_url().'Doctor/deleteService/'.$rec->service_id; ?>"><button type="button" class="btn btn-danger" style="height:30px;">Delete</button></a>
                       </td>
                       <!-- 
                       <td class="text-center">
