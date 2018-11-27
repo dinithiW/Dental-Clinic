@@ -16,7 +16,7 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_patient_records');
 	}
-<<<<<<< HEAD
+
         public function inventoryManage(){
                 $this->load->model('Doctor_model');
                 $data['records']= $this->Doctor_model->getInventory();
@@ -69,7 +69,7 @@ class Doctor extends CI_Controller {
                 $this->load->model('Doctor_model');
                 $this->Doctor_model->updateInventroy($id,$data);
         }
-=======
+
 
 	public function viewRecords(){
 		$this->load->model('Doctor_model');
@@ -128,7 +128,6 @@ class Doctor extends CI_Controller {
 		$this->load->view('Doctor/edit_services',$data);
 		$this->load->view('doc_navbar');
 	}
->>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
 }
 
 ?>
