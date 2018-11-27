@@ -87,7 +87,7 @@
               <ul class="navbar-nav flex-column mt-4">
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Patient/viewProfile" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>Profile</a></li>
-                <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>Inbox</a></li> -->
+                <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Patient/editProfile" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user-edit text-light fa-lg mr-3"></i>Edit Profile</a></li>
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Patient/reserveTreatment" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-plus text-light fa-lg mr-3"></i>Make Appointments</a></li>
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Patient/viewAppoints" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="far fa-calendar-alt text-light fa-lg mr-3"></i>My Appointments</a></li>
                 <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>Charts</a></li>

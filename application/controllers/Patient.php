@@ -23,10 +23,10 @@ class Patient extends CI_Controller {
 		
 	}
 	public function editProfile(){
-		$this->load->model("Customer_model");
+		$this->load->model("Patient_model");
 		$userid=$this->session->user_id;
-		$data['cusData']=$this->Customer_model->getCustomerData($userid);
-		$this->load->view('customer_editProfile',$data); 
+		$data['pData']=$this->Patient_model->getPatientData($userid);
+		$this->load->view('editProfile_view',$data); 
 	}
 	public function reserveTreatment($year=null,$month=null){
 		if(!$year){
@@ -73,26 +73,27 @@ class Patient extends CI_Controller {
 		$this->load->view('customer_serviceHistory',$data);
 	}
 	public function editProfileDetails(){
-		$this->load->model("Customer_model");
-		$nic= $this->input->post('nic');
+		$this->load->model("Patient_model");
+		$id= $this->session->user_id;
 		$data = array(
-			'title' => $this->input->post('title'),
+			'patient_id' =>$id,
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
-			'phone' => $this->input->post('cno'),
 			'email' => $this->input->post('email'),
-			'address' => $this->input->post('add')
+			'address' => $this->input->post('address'),
+			'contact_no' => $this->input->post('cno'),
+			'age' => $this->input->post('age')
 		);
-		$this->Customer_model->editProfile($nic,$data);
-		$this->session->set_flashdata('customerUpdate_success','Details Updated!');
-		redirect('index.php/customer/editProfile');
+		$this->Patient_model->editProfile($id,$data);
+		$this->session->set_flashdata('patientUpdate_success','Details Updated!');
+		redirect('Patient/editProfile');
 	}
 	public function changePassword(){
-		$this->load->model("Customer_model");
+		$this->load->model("Patient_model");
 		$old=$this->input->post('old');
 		$encripted_new=password_hash($this->input->post('new'),PASSWORD_BCRYPT);
-		$this->Customer_model->changePassword($old,$encripted_new);
-		redirect('index.php/customer/editProfile');
+		$this->Patient_model->changePassword($old,$encripted_new);
+		redirect('Patient/editProfile');
 	}
 	public function getServiceHistory(){
 		$this->load->model("Customer_model");

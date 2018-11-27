@@ -25,6 +25,21 @@ class Doctor extends CI_Controller {
 		$this->load->view('Doctor/view_patient_records',$data);
 
 	}
+
+	public function viewAppointments(){
+		$this->load->model('Doctor_model');
+		$data['tAppoints'] = $this->Doctor_model->getTodaysAppoints();
+		
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_appointments');
+	}
+
+	public function todayAppoints(){
+		$this->load->model('Doctor_model');
+		$data['tAppoints'] = $this->Doctor_model->getTodaysAppoints();
+		redirect('../Doctor/viewAppointments');
+
+	}
 	
 }
 

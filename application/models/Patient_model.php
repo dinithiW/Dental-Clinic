@@ -2,10 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 Class Patient_model extends CI_Model{
 	
-	public function editProfile($nic,$data){
+	public function editProfile($id,$data){
 		$this->load->database("");
-		$this->db->where('nic', $nic);
-		$this->db->update('customer', $data);
+		$this->db->where('patient_id', $id);
+		$this->db->update('patient', $data);
 		
 	}
 	public function getPatientData(){

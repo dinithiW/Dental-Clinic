@@ -90,7 +90,7 @@
 
                 <li class="nav-item"><a href=<?= base_url("Doctor/createAppointment")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-check text-light fa-lg mr-3"></i>Create Appointments</a></li>
 
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
+                <li class="nav-item"><a href="<?= base_url("Doctor/viewAppointments")?>" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
 
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Customer/reserveService" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Edit Event Calendar</a></li>
 
