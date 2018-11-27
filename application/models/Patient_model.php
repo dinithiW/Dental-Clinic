@@ -42,63 +42,7 @@ Class Patient_model extends CI_Model{
 			return false;
 		}
 	}
-	public function getVehicleData($userid){
-		$this->load->database("");
-		$this->db->select("*");
-		$this->db->from("vehicle");
-		$this->db->where('cus_id',$userid);
-		$result = $this->db->get();
-		return $result->result();
-	}
-	public function getServiceHistory($vehicle_no){
-		$this->load->database("");
-		$this->db->select("*");
-		$this->db->from("jobcard");
-		$this->db->where('vehicle_no',$vehicle_no);
-		$this->db->order_by("date", "desc");
-		$result = $this->db->get();
-		$array1=array();$array2=array(array(array()));
-		if ($result->num_rows() >0) {
-			for ($i=0; $i < $result->num_rows(); $i++) { 
-				$array1[$i]=$result->row($i)->job_id;
-				$array2[$i][0][1]=$array1[$i];
-				$array2[$i][0][0]=$result->row($i)->date;
-			}
-			for ($i=0; $i < $result->num_rows(); $i++) { 
-				$this->db->select("*");
-				$this->db->from("jobcard_service as js");
-				$this->db->join("service as s","s.service_id=js.service_id");
-				$this->db->where('js.job_id',$array1[$i]);
-				$r = $this->db->get();
-				if($r->num_rows() >0){
-					
-					for ($j=0; $j < $r->num_rows(); $j++) { 
-						$array2[$i][1][$j]=$r->row($j)->service_name;
-					}
-				}
-				
-			}
-			for ($i=0; $i < $result->num_rows(); $i++) { 
-				$this->db->select("*");
-				$this->db->from("jobcard_spare as jp");
-				$this->db->join("spares as sp","sp.spare_id=jp.spare_id");
-				$this->db->where('jp.job_id',$array1[$i]);
-				$r = $this->db->get();
-				if($r->num_rows() >0){
-					
-					for ($j=0; $j < $r->num_rows(); $j++) { 
-						$array2[$i][2][$j]=$r->row($j)->name;
-					}
-				}
-				
-			}
-		}
-		else{
-			return false;
-		}
-		
-		return $array2;
-	}
+	
 	//calendar generation
 	public function generate($year,$month){
 		$appointments=$this->getReservationDetails();
@@ -227,11 +171,7 @@ Class Patient_model extends CI_Model{
 		}
 		return $cal_data;
 	}
-	public function RescheduleRes($id,$data){
-		$this->load->database("");
-		$this->db->where('id', $id);
-		$this->db->update('reservations', $data);
-	}
+	
 	
 	public function getReservationDetails(){
 		$this->load->database("");
