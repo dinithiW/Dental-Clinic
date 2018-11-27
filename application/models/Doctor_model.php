@@ -62,13 +62,7 @@ $this->db->replace('services', $data);
 	return $success;
 	}
 
-	//yet to implement
-	public function deleteService(){
-
-		$this->load->database();
-        $query = $this->db->get('services');
-        return $query->result();
-	}
+	
 
 	public function viewPayments(){
 		$patient_id = $_POST['patient_id'];
@@ -90,7 +84,21 @@ $this->db->replace('services', $data);
 		echo"$param1";
 	}
 
+	public function deleteService($service_id){
+		$this->db->where('service_id', $service_id);
+		$this->db->delete('services');
+	}
 
+	public function addService(){
+		$array = array(
+        'service_name' => $_POST['service_name'],
+        'price' => $_POST['price'],
+        'instalments' => $_POST['instalments']
+);
+
+$this->db->set($array);
+$this->db->insert('services');
+	}
 
 
 }

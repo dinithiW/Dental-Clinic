@@ -74,6 +74,28 @@ class Doctor extends CI_Controller {
 		$this->load->view('Doctor/edit_services',$data);
 		$this->load->view('doc_navbar');
 	}
+
+
+	public function deleteService($service_id){
+		$this->load->model('Doctor_model');
+		$this->Doctor_model->deleteService($service_id);
+		
+		$this->viewServices();
+		/*$this->load->view('Doctor/view_services');
+		$this->load->view('doc_navbar');*/
+	}
+
+	public function addServiceHome(){
+		$this->load->view('Doctor/add_service');
+		$this->load->view('doc_navbar');
+	}
+
+	public function addService(){
+		$this->load->model('Doctor_model');
+		$this->Doctor_model->addService();
+
+		$this->viewServices();
+	}
 }
 
 ?>
