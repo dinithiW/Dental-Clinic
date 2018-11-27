@@ -80,7 +80,6 @@ class Doctor extends CI_Controller {
 
 	public function viewAppointments(){
 		
-		
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_appointments');
 	}
@@ -168,6 +167,12 @@ class Doctor extends CI_Controller {
 
 		$this->viewServices();
 	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('../Home');
+	}
+
 
 }
 

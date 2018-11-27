@@ -116,6 +116,9 @@
                 <div class="col-md-4">
                   <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
                 </div>
+                <div class="col-md-8 w3-right">
+                <a href="<?php echo base_url(); ?>index.php/Doctor/logout" class="w3-bar-item w3-button w3-round w3-hover-light-gray w3-gray-small w3-right w3-text-gray" style="width: auto; right:0">LOGOUT</a>
+                </div>
                 <!-- <div class="col-md-5">
                   <form>
                     <div class="input-group">
