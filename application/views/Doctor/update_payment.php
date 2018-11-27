@@ -132,6 +132,20 @@
 				      <button type="submit" class="btn btn-default">Submit</button>
 				    </div>
 				  </div>
+
+<br>
+<br>
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="pwd" id = "total">Total</label>
+				    <script>
+     
+     function test() {
+    d = document.getElementById("sel1").value;
+    //alert(d);
+    document.getElementById('total').innerHTML = "Amount to be paid is "+d;
+}
+    </script>
+				  </div>
 </form>
 			
 		</div>
