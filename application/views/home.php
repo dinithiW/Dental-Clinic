@@ -22,15 +22,15 @@ body, html {
 .bgimg {
     background-position: center;
     background-size: cover;
-    background-image: url("<?php echo base_url(); ?>assets/images/dentalClinic.jpg");
+    background-image: url("<?php echo base_url(); ?>assets/images/dental-gal.jpg");
     min-height: 75%;
 }
 .menu {
     display: none;
 }
-</style>
 
-<style>
+
+
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
@@ -102,36 +102,8 @@ span.psw {
         width: 100%;
     }
 }
-</style>
-<body>
 
-<!-- Links (sit on top) -->
-<div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">SERVICES</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#where" class="w3-button w3-block w3-black">JOIN US</a>
-    </div>
-  </div>
-</div>
 
-<!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-tag">Open from 6am to 5pm</span>
-  </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large w3-hide-small">
-     
- 
-<style>
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
@@ -204,7 +176,37 @@ span.psw {
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
 </style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">SERVICES</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black">JOIN US</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Open from 6am to 5pm</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large w3-hide-small">
+     
+ 
+
 </head>
 <body>
 
@@ -261,11 +263,11 @@ function closeForm() {
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-<<<<<<< HEAD
+
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h5>
-=======
+
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CLINIC</span></h5>
->>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
+
     <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
     <div class="w3-panel w3-leftbar w3-light-grey">

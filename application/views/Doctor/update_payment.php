@@ -93,7 +93,7 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Service</label>
 				    <div class="col-sm-8"> 
-				      <select class="form-control" id="sel1" name = "instalments">
+				      <select class="form-control" id="sel1" name = "instalments" onchange="test()">
 
 				      	<?php
                     if(!empty($records))
@@ -101,7 +101,7 @@
                         foreach ($records as $rec){
                     ?> 
                     <tr>
-                      <option><?php echo $rec->service_name?></option>
+                      <option value="<?php echo $rec->price?>"><?php echo $rec->service_name?></option>
                       
                       <!-- 
                       <td class="text-center">
@@ -122,7 +122,7 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Amount Paid</label>
 				    <div class="col-sm-8"> 
-				      <input type="text" class="form-control" id="pwd" placeholder="Enter the amount" name = "amount">
+				      <input type="number" class="form-control" id="pwd" placeholder="Enter the amount" name = "amount" oninput="this.value = Math.abs(this.value)">
 				    </div>
 				  </div>
 

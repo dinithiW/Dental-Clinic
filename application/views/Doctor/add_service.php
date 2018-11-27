@@ -88,7 +88,7 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Price</label>
 				    <div class="col-sm-8"> 
-				    	<input required type="number" class="form-control" id="pwd" placeholder="Enter price" name = "price">
+				    	<input required type="number" oninput="this.value = Math.abs(this.value)"class="form-control" id="pwd" placeholder="Enter price" name = "price">
 				    </div>
 				  </div>
 				  <div class="form-group">
