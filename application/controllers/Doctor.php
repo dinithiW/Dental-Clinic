@@ -93,6 +93,32 @@ class Doctor extends CI_Controller {
 
 	}
 	
+	
+
+	public function viewPayments(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getServices();
+		
+		$this->load->view('Doctor/update_payment',$data);
+		$this->load->view('doc_navbar');
+	}
+
+	/*public function viewInstalments(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getPatientRecords();
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_payments',$data);
+	}*/
+
+	public function updatePayment(){
+		$this->load->model('Doctor_model');
+		$this->Doctor_model->addPayment();
+		
+		$this->viewPayments();
+
+		
+	}
+
 	public function viewServices(){
 		
 		$this->load->model('Doctor_model');
@@ -102,27 +128,6 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 	}
 
-	public function viewPayments(){
-		$this->load->view('doc_navbar');
-		$this->load->view('Doctor/view_payments');
-	}
-
-	public function viewInstalments(){
-		$this->load->model('Doctor_model');
-		$data['records'] = $this->Doctor_model->getPatientRecords();
-		$this->load->view('doc_navbar');
-		$this->load->view('Doctor/view_payments',$data);
-	}
-
-	public function updatePayment(){
-		$this->load->model('Doctor_model');
-		$data['records'] = $this->Doctor_model->getServices();
-		
-		$this->load->view('Doctor/update_payment',$data);
-		$this->load->view('doc_navbar');
-
-		
-	}
 
 	public function editService($service_id){
 				$data['update'] = false;
@@ -142,8 +147,7 @@ class Doctor extends CI_Controller {
 		$data['vari'] = $this->Doctor_model->success;
 
 		$this->viewServices();
-		/*$this->load->view('Doctor/view_services');
-		$this->load->view('doc_navbar');*/
+		
 	}
 
 

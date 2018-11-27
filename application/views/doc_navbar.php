@@ -81,14 +81,14 @@
             <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
               <a href="#" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">Tooth Clinic</a>
               <div class="bottom-border pb-3">
-                <img src="/assets/images/admin.jpeg" width="50" class="rounded-circle mr-3">
+                <img src="" width="50" class="rounded-circle mr-3">
                 <a href="#" class="text-white">Doctor</a>
               </div>
               <ul class="navbar-nav flex-column mt-4">
 
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
 
-                <li class="nav-item"><a href=<?= base_url("Doctor/createAppointment")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-check text-light fa-lg mr-3"></i>Create Appointments</a></li>
+                <!-- <li class="nav-item"><a href=<?= base_url("Doctor/createAppointment")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-check text-light fa-lg mr-3"></i>Create Appointments</a></li> -->
 
                 <li class="nav-item"><a href="<?= base_url("Doctor/viewAppointments")?>" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
 

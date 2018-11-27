@@ -9,6 +9,8 @@ public function __construct() {
 		$this->load->database();
 	}
 
+public $paymentVar = 45;
+
         public function getInventory(){
             $query = $this->db->get('inventory');
             return $query->result();
@@ -126,6 +128,31 @@ $this->db->replace('services', $data);
 		echo"$param1";
 	}
 
+	public function addPayment(){
+		$paymentVar = 1;
+		$patient_id = $_POST['patient_id'];
+		$date = $_POST['apt_date'];
+		$service_name = $_POST['service_name'];
+		echo"$service_name";
+		$this->db->select('service_id');
+        $this->db->from('services');
+        $this->db->where('service_name',$service_name);
+
+        $service_id = $this->db->get();
+
+        $array = array(
+        'patient_id' => $patient_id,
+        'service_id' => $service_id,
+        'date' => $date
+        
+);
+
+$this->db->set($array);
+$this->db->insert('services');
+
+
+	}
+	
 	public function deleteService($service_id){
 		$this->db->where('service_id', $service_id);
 		$this->db->delete('services');

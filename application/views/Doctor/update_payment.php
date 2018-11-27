@@ -72,8 +72,12 @@
 <body>
 	<div class="w3-content" style="max-width:2000px;margin-top:49px;margin-left:300px;">
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
-			<form class="form-horizontal" action="">
-
+			<form class="form-horizontal" action="<?php echo base_url().'Doctor/updatePayment'?>" method = "POST">
+				<?php
+				  $this->load->model('Doctor_model');
+				  $vari = $this->Doctor_model->paymentVar;
+				  echo $vari;
+				  ?>
 				  <div class="form-group">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Patient ID</label>
@@ -93,7 +97,7 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Service</label>
 				    <div class="col-sm-8"> 
-				      <select class="form-control" id="sel1" name = "instalments" onchange="test()">
+				      <select class="form-control" id="sel1" name = "service_name" onchange="test()">
 
 				      	<?php
                     if(!empty($records))
@@ -101,12 +105,20 @@
                         foreach ($records as $rec){
                     ?> 
                     <tr>
-                      <option value="<?php echo $rec->price?>"><?php echo $rec->service_name?></option>
+                      <option value="<?php 
+
+                      $this->load->model('Doctor_model');
+				  $vari = $this->Doctor_model->paymentVar;
+
+				  if($vari==1){
+				  	echo $rec->service_id;
+				  }else{
+				  	echo $rec->price;
+				  } ?>">
+
+
+                      <?php echo $rec->service_name?></option>
                       
-                      <!-- 
-                      <td class="text-center">
-                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
-                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>"><i class="fa fa-trash"></i></a> -->
                       
                     </tr>
                     <?php
@@ -115,14 +127,6 @@
                     ?> 
         
       </select>
-				    </div>
-				  </div>
-
-				  
-				  <div class="form-group">
-				    <label class="control-label col-sm-2" for="pwd">Amount Paid</label>
-				    <div class="col-sm-8"> 
-				      <input type="number" class="form-control" id="pwd" placeholder="Enter the amount" name = "amount" oninput="this.value = Math.abs(this.value)">
 				    </div>
 				  </div>
 
@@ -136,7 +140,7 @@
 <br>
 <br>
 				  <div class="form-group">
-				    <label class="control-label col-sm-2" for="pwd" id = "total">Total</label>
+				    <label class="control-label col-sm-2" for="pwd" id = "total"></label>
 				    <script>
      
      function test() {
