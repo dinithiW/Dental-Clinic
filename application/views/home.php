@@ -215,13 +215,13 @@ span.psw {
 <div class="form-popup" id="myForm">
   <form action="Home/login" class="form-container" method="post">
     <h1>Login</h1>
-    <label for="uname"><b>Usertype</b></label>
+    <!-- <label for="uname"><b>Usertype</b></label>
     <select name="utype" style="width:100%;height:50px;background-color: #ddd;outline: none;">
     <option value="">Account Type</option>
     <option value="Patient">Patient</option>
     <option value="Doctor">Doctor</option>
     <option value="Assistant">Assistant</option>
-    </select>
+    </select> -->
 
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
@@ -261,7 +261,11 @@ function closeForm() {
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
+<<<<<<< HEAD
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h5>
+=======
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CLINIC</span></h5>
+>>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
     <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
     <div class="w3-panel w3-leftbar w3-light-grey">
@@ -406,7 +410,7 @@ function closeForm() {
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  <p> <a href="https://www.w3schools.com/w3css/default.asp" title="Dental-Clinic" target="_blank" class="w3-hover-text-green"></a></p>
 </footer>
 
 <script>

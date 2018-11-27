@@ -53,7 +53,12 @@
 		background-color:#F9B4DB
  ;
 	}
-	
+	.calendar .days td:hover{
+		background-color: #FFF;
+	}
+	.calendar .highlight{
+		font-weight:bold; color:#00F;
+	}
 	.nCont{
 		width:80px;height:80px;padding:4px;
 	}
@@ -67,66 +72,37 @@
 <body>
 	<div class="w3-content" style="max-width:2000px;margin-top:49px;margin-left:300px;">
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
-		
-				  	<!-- <div class="form-group ">
+			<form class="form-horizontal" action="">
+
+				  <div class="form-group">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Patient ID</label>
-				    	 <div class="row"> -->
-				    		<!-- <div class="col-sm-4">
-				      			<input type="email" class="form-control" id="email" placeholder="Enter Patient ID">
-				      			
-				    		</div>
-				    		<div class="col-sm-4">
-				    			<button type="button" class="btn btn-info" onclick="">
-      								<span class="glyphicon glyphicon-search"></span> Search
-    							</button>
-				    		</div> -->
-				    	<!-- </div> -->
-				    
-				    
-				 <!--  </div> -->
-		<div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Patient Records</h3>
-                    <div class="box-tools">
-                        <form method = "POST" action= "<?=base_url('Doctor/view')?>"  >
-                            <div class="input-group">
-                              <!-- <input type="text" name="patient_id"  id="patient_id"class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/> -->
-                              <div class="col-sm-8"> 
-                    <input type="text" class="form-control" name="la" placeholder="Enter User ID">
-                  </div>
-                              <div class="form-group"> 
-                  <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-default">Search</button>
-                  </div>
-                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- /.box-header -->
-                <br/>
-                <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover" >
-                    <tr>
-                      <th>Treatment</th>
-                      <th>Date</th>
-                      <th>Remarks</th>
-                      
-                      <!-- <th class="text-center">Actions</th> -->
-                    </tr>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="email" placeholder="Enter the patient ID" name = "patient_id" required>
+				    </div>
 
-                    
-                    <?php
+				  </div>
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="pwd">Date</label>
+				    <div class="col-sm-8"> 
+				      <input type="date" class="form-control" id="pwd" placeholder="Enter password" name = "apt_date">
+				    </div>
+				  </div>
+
+				  <!-- make this a select option -->
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="pwd">Service</label>
+				    <div class="col-sm-8"> 
+				      <select class="form-control" id="sel1" name = "instalments">
+
+				      	<?php
                     if(!empty($records))
                     {
                         foreach ($records as $rec){
                     ?> 
                     <tr>
-                      <td><?php echo $rec->treatment?></td>
-                      <td><?php echo $rec->date ?></td>
-                      <td><?php echo $rec->remarks ?></td>
+                      <option><?php echo $rec->service_name?></option>
+                      
                       <!-- 
                       <td class="text-center">
                           <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
@@ -137,24 +113,25 @@
                         }
                     }
                     ?> 
-                  </table>
-                  
-                </div><!-- /.box-body -->
-                
-              </div><!-- /.box -->
-            </div>
-        </div>
-				  <!-- <div class="form-group"> 
-				    <div class="col-sm-offset-2 col-sm-10">
-				       <div class="checkbox">
-				        <label><input type="checkbox"> Remember me</label>
-				      </div> 
-				    </div>				  </div>
+        
+      </select>
+				    </div>
+				  </div>
+
+				  
+				  <div class="form-group">
+				    <label class="control-label col-sm-2" for="pwd">Amount Paid</label>
+				    <div class="col-sm-8"> 
+				      <input type="text" class="form-control" id="pwd" placeholder="Enter the amount" name = "amount">
+				    </div>
+				  </div>
+
+				  
 				  <div class="form-group"> 
 				    <div class="col-sm-offset-2 col-sm-10">
 				      <button type="submit" class="btn btn-default">Submit</button>
 				    </div>
-				  </div> -->
+				  </div>
 </form>
 			
 		</div>

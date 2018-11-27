@@ -8,8 +8,9 @@ Class Patient_model extends CI_Model{
 		$this->db->update('customer', $data);
 		
 	}
-	public function getPatientData($userid){
+	public function getPatientData(){
 		$this->load->database("");
+		$userid=$this->session->user_id;
 		$this->db->select("*");
 		$this->db->from("patient");
 		$this->db->where('patient_id',$userid);

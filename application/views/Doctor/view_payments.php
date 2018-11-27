@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Customer dashboard</title>
+<title>Tooth Clinic</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/w3.css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
@@ -89,30 +90,41 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Patient Records</h3>
+                    <h3 class="box-title">Payments</h3>
                     <div class="box-tools">
                         <form method = "POST" action= "<?=base_url('Doctor/view')?>"  >
                             <div class="input-group">
                               <!-- <input type="text" name="patient_id"  id="patient_id"class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/> -->
                               <div class="col-sm-8"> 
-                    <input type="text" class="form-control" name="la" placeholder="Enter User ID">
+                    <input type="text" class="form-control" name="patient_id" placeholder="Enter User ID">
                   </div>
                               <div class="form-group"> 
                   <div class="col-sm-offset-2 col-sm-10">
                       <button type="submit" class="btn btn-default">Search</button>
+                      
                   </div>
                 </div>
+                <br>
+                <div class="form-group"> 
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <a href="<?=base_url("Doctor/updatePayment")?>">
+                      <button type="button" class="btn btn-primary" >Update</button>
+                    </a>
+                  </div>
+                </div>
+                
                             </div>
                         </form>
                     </div>
                 </div><!-- /.box-header -->
                 <br/>
+
                 <div class="box-body table-responsive no-padding">
-                  <table class="table table-hover" >
+                  <table class="table table-hover" style="width:800px;">
                     <tr>
                       <th>Treatment</th>
-                      <th>Date</th>
-                      <th>Remarks</th>
+                      <th>Amount Paid</th>
+                      <th>Pending Amount</th>
                       
                       <!-- <th class="text-center">Actions</th> -->
                     </tr>

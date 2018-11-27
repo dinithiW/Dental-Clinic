@@ -85,16 +85,27 @@
                 <a href="#" class="text-white">Doctor</a>
               </div>
               <ul class="navbar-nav flex-column mt-4">
+
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
+
                 <li class="nav-item"><a href=<?= base_url("Doctor/createAppointment")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-calendar-check text-light fa-lg mr-3"></i>Create Appointments</a></li>
+
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>View Appointments</a></li>
+
                 <li class="nav-item"><a href="<?php echo base_url(); ?>index.php/Customer/reserveService" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>Edit Event Calendar</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Update payment details</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>View payment records</a></li>
+
+                <li class="nav-item"><a href=<?= base_url("Doctor/viewPayments")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>Payments</a></li>
+
+                <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>View payment records</a></li> -->
+
                 <li class="nav-item"><a href=<?= base_url("Doctor/patientRecords")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>View patient records</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Manage services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>Manage inventory</a></li>
+
+                <li class="nav-item"><a href=<?= base_url("Doctor/services")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Manage services</a></li>
+
+                <!-- <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>Manage inventory</a></li> -->
+
                 <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>View reports</a></li>
+
               </ul>
             </div>
             <!-- end of sidebar -->
@@ -105,7 +116,7 @@
                 <div class="col-md-4">
                   <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
                 </div>
-                <div class="col-md-5">
+                <!-- <div class="col-md-5">
                   <form>
                     <div class="input-group">
                       <input type="text" class="form-control search-input" placeholder="Search...">
@@ -119,7 +130,7 @@
                     <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fas fa-bell text-muted fa-lg"></i></a></li>
                     <li class="nav-item ml-md-auto"><a href="#" class="nav-link" data-toggle="modal" data-target="#sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>
             <!-- end of top-nav -->

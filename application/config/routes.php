@@ -55,3 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['Doctor'] = 'Doctor/index';
 $route['Doctor/createAppointment'] = 'Doctor/createAppointment';
+$route['Doctor/patientRecords'] = 'Doctor/patientRecords';
+$route['Doctor/view'] = 'Doctor/viewRecords';
+$route['Doctor/services'] = 'Doctor/viewServices';
+$route['Doctor/editServices'] = 'Doctor/editServices';
+$route['Doctor/viewPayments'] = 'Doctor/viewPayments';
+$route['Doctor/updatePayment'] = 'Doctor/updatePayment';
+$route['Doctor/editService/(:num)'] = "Doctor/editService/$1";
+$route['Doctor/updateService/(:num)'] = "Doctor/updateService/$1";
+//$route['Doctor/instalments'] = 'Doctor/';

@@ -16,6 +16,7 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_patient_records');
 	}
+<<<<<<< HEAD
         public function inventoryManage(){
                 $this->load->model('Doctor_model');
                 $data['records']= $this->Doctor_model->getInventory();
@@ -68,6 +69,66 @@ class Doctor extends CI_Controller {
                 $this->load->model('Doctor_model');
                 $this->Doctor_model->updateInventroy($id,$data);
         }
+=======
+
+	public function viewRecords(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getPatientRecords();
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_patient_records',$data);
+	}
+	
+	public function viewServices(){
+		
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getServices();
+		
+		$this->load->view('Doctor/view_services',$data);
+		$this->load->view('doc_navbar');
+	}
+
+	public function viewPayments(){
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_payments');
+	}
+
+	public function viewInstalments(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getPatientRecords();
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_payments',$data);
+	}
+
+	public function updatePayment(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->getServices();
+		
+		$this->load->view('Doctor/update_payment',$data);
+		$this->load->view('doc_navbar');
+
+		
+	}
+
+	public function editService($service_id){
+				$data['update'] = false;
+
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->editService($service_id);
+		
+		$this->load->view('Doctor/edit_services',$data);
+		$this->load->view('doc_navbar');
+	}
+
+	public function updateService($service_id){
+		$this->load->model('Doctor_model');
+		$data['update'] = true;
+		$data['service_id'] = $service_id;
+		$data['records'] = $this->Doctor_model->updateService($service_id);
+		$data['vari'] = $this->Doctor_model->success;
+		$this->load->view('Doctor/edit_services',$data);
+		$this->load->view('doc_navbar');
+	}
+>>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
 }
 
 ?>
