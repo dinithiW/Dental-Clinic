@@ -85,12 +85,12 @@ public $paymentVar = 45;
 
 		$service = $_POST['service_name'];
 		$price = $_POST['price'];
-		$instalments = $_POST['instalments'];
+		//$instalments = $_POST['instalments'];
 		$data = array(
 		'service_id' => $service_id,
         'service_name' => $service,
-        'price' => $price,
-        'instalments' => $instalments
+        'price' => $price
+        
 		);
 $this->db->replace('services', $data);
 	$rows = $this->db->affected_rows() ;
@@ -123,22 +123,26 @@ $this->db->replace('services', $data);
         return $query->result();
 	}
 
-	public function updatePayment($param1){
+	/*public function updatePayment($param1){
 
 		echo"$param1";
-	}
+	}*/
 
 	public function addPayment(){
-		$paymentVar = 1;
+
+		$pieces = explode(" ", $_POST['service_name']);
+		//echo $pieces[0]; // piece1
+		$service_id= $pieces[1]; // piece2
+
 		$patient_id = $_POST['patient_id'];
 		$date = $_POST['apt_date'];
-		$service_name = $_POST['service_name'];
-		echo"$service_name";
+		//$service_name = $_POST['service_name'];
+		/*echo"$service_name";
 		$this->db->select('service_id');
         $this->db->from('services');
-        $this->db->where('service_name',$service_name);
+        $this->db->where('service_name',$service_name);*/
 
-        $service_id = $this->db->get();
+        //$service_id = $this->db->get();
 
         $array = array(
         'patient_id' => $patient_id,
@@ -148,7 +152,7 @@ $this->db->replace('services', $data);
 );
 
 $this->db->set($array);
-$this->db->insert('services');
+$this->db->insert('payments');
 
 
 	}
@@ -161,8 +165,8 @@ $this->db->insert('services');
 	public function addService(){
 		$array = array(
         'service_name' => $_POST['service_name'],
-        'price' => $_POST['price'],
-        'instalments' => $_POST['instalments']
+        'price' => $_POST['price']
+        
 );
 
 $this->db->set($array);

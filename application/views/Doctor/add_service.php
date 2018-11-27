@@ -76,12 +76,12 @@
 			<form class="form-horizontal" 
 			
 				action="<?php echo base_url().'Doctor/addService'?>" method = "POST">
->			
+		
 				  <div class="form-group">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Service Name</label>
 				    <div class="col-sm-8">
-				    	<input required type="text" class="form-control" id="email" placeholder="Enter email" name = "service_name"/> 
+				    	<input required type="text" class="form-control" id="email" placeholder="Enter Service Name" name = "service_name"/> 
 
 				    </div>
 				  </div>
@@ -91,7 +91,7 @@
 				    	<input required type="number" oninput="this.value = Math.abs(this.value)"class="form-control" id="pwd" placeholder="Enter price" name = "price">
 				    </div>
 				  </div>
-				  <div class="form-group">
+				  <!-- <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Instalments</label>
 				    <div class="col-sm-8"> 
 				    	
@@ -108,7 +108,7 @@
 				    
 				      
 				    </div>
-				  </div>
+				  </div> -->
 
 				  
 				  <div class="form-group"> 

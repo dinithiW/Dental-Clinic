@@ -102,7 +102,7 @@
                       <th>Service ID</th>
                       <th>Name</th>
                       <th>Price</th>
-                      <th>Instalments</th>
+                      <!-- <th>Instalments</th> -->
                       <th class="text-center">Actions</th>
                       <!-- <th class="text-center">Actions</th> -->
                     </tr>
@@ -117,7 +117,7 @@
                       <td><?php echo $rec->service_id?></td>
                       <td><?php echo $rec->service_name ?></td>
                       <td><?php echo $rec->price ?></td>
-                      <td><?php echo $rec->instalments ?></td>
+                      <!-- <td><?php echo $rec->instalments ?></td> -->
                       <td class="text-center"><a href="<?php echo base_url().'Doctor/editService/'.$rec->service_id; ?>"><button type="button" class="btn btn-info" style="height:30px;">Edit</button></a>
                       <a href="<?php echo base_url().'Doctor/deleteService/'.$rec->service_id; ?>"><button type="button" class="btn btn-danger" style="height:30px;">Delete</button></a>
                       </td>

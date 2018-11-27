@@ -102,7 +102,7 @@
 				  <?php endif?>
 				    </div>
 				  </div>
-				  <div class="form-group">
+				 <!--  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Instalments</label>
 				    <div class="col-sm-8"> 
 				    	<?php if($update != true): ?>
@@ -120,7 +120,7 @@
 				    <?php endif?>
 				      
 				    </div>
-				  </div>
+				  </div> -->
 
 				  
 				  <div class="form-group"> 

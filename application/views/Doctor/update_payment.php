@@ -73,11 +73,7 @@
 	<div class="w3-content" style="max-width:2000px;margin-top:49px;margin-left:300px;">
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
 			<form class="form-horizontal" action="<?php echo base_url().'Doctor/updatePayment'?>" method = "POST">
-				<?php
-				  $this->load->model('Doctor_model');
-				  $vari = $this->Doctor_model->paymentVar;
-				  echo $vari;
-				  ?>
+
 				  <div class="form-group">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Patient ID</label>
@@ -105,20 +101,12 @@
                         foreach ($records as $rec){
                     ?> 
                     <tr>
-                      <option value="<?php 
-
-                      $this->load->model('Doctor_model');
-				  $vari = $this->Doctor_model->paymentVar;
-
-				  if($vari==1){
-				  	echo $rec->service_id;
-				  }else{
-				  	echo $rec->price;
-				  } ?>">
-
-
-                      <?php echo $rec->service_name?></option>
+                      <option value="<?php echo $rec->price." ".$rec->service_id?>"><?php echo $rec->service_name?></option>
                       
+                      <!-- 
+                      <td class="text-center">
+                          <a class="btn btn-sm btn-info" href="<?php echo base_url().'editOld/'.$record->userId; ?>"><i class="fa fa-pencil"></i></a>
+                          <a class="btn btn-sm btn-danger deleteUser" href="#" data-userid="<?php echo $record->userId; ?>"><i class="fa fa-trash"></i></a> -->
                       
                     </tr>
                     <?php
@@ -145,8 +133,9 @@
      
      function test() {
     d = document.getElementById("sel1").value;
+    var res = d.split(" ", 1);
     //alert(d);
-    document.getElementById('total').innerHTML = "Amount to be paid is "+d;
+    document.getElementById('total').innerHTML = "Amount to be paid is "+res;
 }
     </script>
 				  </div>
