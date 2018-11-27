@@ -135,9 +135,6 @@ span.psw {
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
-#home{
-    background: #000080;
-}
 .open-button {
   background-color: #555;
   color: white;
@@ -247,11 +244,15 @@ function closeForm() {
 
   
   </div>
+  <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Open from 6am to 5pm</span>
+  </div>
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-grey" style="font-size:90px">Dental<br>Clinic</span>
+    <span class="w3-text-white" style="font-size:90px">Dental<br>Clinic</span>
   </div>
   <div class="w3-display-bottomright w3-center w3-padding-large">
-    <span class="w3-text-white"></span>
+    <span class="w3-text-white">15 Adr street, 5015</span>
   </div>
 </header>
 
@@ -261,18 +262,14 @@ function closeForm() {
 <!-- About Container -->
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
-<<<<<<< HEAD
-    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE DENTAL CLINIC</span></h5>
-=======
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CLINIC</span></h5>
->>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
     <p>The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     <p>In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.</p>
     <div class="w3-panel w3-leftbar w3-light-grey">
       <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
       <p>Chef, Coffeeist and Owner: Liam Brown</p>
     </div>
-    <img src="<?php echo base_url(); ?>assets/images/dental-gal.jpg" style="width:100%;max-width:1000px" class="w3-margin-top"/>
+    <img src="<?php echo base_url(); ?>assets/images/dental-gal.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
     <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
     <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
   </div>
