@@ -53,6 +53,12 @@ class Patient extends CI_Controller {
 		$this->load->view('myAppointments',$data);
 	}
 
+	public function viewProfile(){
+		$this->load->model('Patient_model');
+		$data['det']=$this->Patient_model->getPatientData();
+		$this->load->view('patProfile_view',$data);
+	}
+
 	public function deleteAppoint($id){
 		$this->load->model('Patient_model');
 		$this->Patient_model->delAppointment($id);
@@ -124,6 +130,12 @@ class Patient extends CI_Controller {
 		$this->session->set_flashdata('reschedule_success','Rescheduled Successfully!');
 		redirect('index.php/customer/reserveService');
 	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('../Home');
+	}
+
 
 }
 ?>
