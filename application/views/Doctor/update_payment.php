@@ -93,7 +93,7 @@
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Service</label>
 				    <div class="col-sm-8"> 
-				      <select class="form-control" id="sel1">
+				      <select class="form-control" id="sel1" name = "instalments">
 
 				      	<?php
                     if(!empty($records))

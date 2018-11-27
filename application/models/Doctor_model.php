@@ -8,6 +8,8 @@ Class Doctor_model extends CI_Model{
 		$this->load->database();
 	}
 
+	public $success = 20;
+
 	public function getPatientRecords(){
 
 		$patient_id = $_POST['la'];
@@ -26,12 +28,38 @@ Class Doctor_model extends CI_Model{
         return $query->result();
 	}
 
-	//yet to implement
-	public function editService(){
+	public function editService($service_id){
 
-		$this->load->database();;
-        $query = $this->db->get('services');
-        return $query->result();
+		$this->db->select('*');
+		$this->db->from('services');
+        $this->db->where('service_id',$service_id);
+        $query = $this->db->get();
+        return $query->first_row();
+	}
+
+	public function updateService($service_id){
+
+		$service = $_POST['service_name'];
+		$price = $_POST['price'];
+		$instalments = $_POST['instalments'];
+		$data = array(
+		'service_id' => $service_id,
+        'service_name' => $service,
+        'price' => $price,
+        'instalments' => $instalments
+		);
+$this->db->replace('services', $data);
+	$rows = $this->db->affected_rows() ;
+	//session_start();
+	$success = 1;
+	if($rows==1){
+		$success = 1;
+		
+	}else{
+		$success = 0;
+	}
+
+	return $success;
 	}
 
 	//yet to implement
@@ -57,7 +85,14 @@ Class Doctor_model extends CI_Model{
         return $query->result();
 	}
 
-	
+	public function updatePayment($param1){
+
+		echo"$param1";
+	}
+
+
+
+
 }
 
 ?>
