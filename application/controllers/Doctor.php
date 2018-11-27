@@ -79,8 +79,7 @@ class Doctor extends CI_Controller {
 	}
 
 	public function viewAppointments(){
-		$this->load->model('Doctor_model');
-		$data['tAppoints'] = $this->Doctor_model->getTodaysAppoints();
+		
 		
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_appointments');
@@ -89,7 +88,8 @@ class Doctor extends CI_Controller {
 	public function todayAppoints(){
 		$this->load->model('Doctor_model');
 		$data['tAppoints'] = $this->Doctor_model->getTodaysAppoints();
-		redirect('../Doctor/viewAppointments');
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_appointments',$data); 
 
 	}
 	
