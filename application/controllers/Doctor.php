@@ -16,6 +16,58 @@ class Doctor extends CI_Controller {
 		$this->load->view('doc_navbar');
 		$this->load->view('Doctor/view_patient_records');
 	}
+        public function inventoryManage(){
+                $this->load->model('Doctor_model');
+                $data['records']= $this->Doctor_model->getInventory();
+                $this->load->view('doc_navbar');
+                $this->load->view('Doctor/inventory_Management',$data);
+        }
+        public function deleteInventory(){
+                $this->load->helper('url'); 
+                $id = $this->uri->segment(3);
+                $this->load->model('Doctor_model');
+                $this->Doctor_model->deleteInventroy($id);
+        }
+        public function viewAddInventory(){
+                $this->load->view('doc_navbar');
+                $this->load->view('Doctor/add_inventory');
+        }
+        public function addInventory(){
+                $this->form_validation->set_rules('id','id','trim|required');
+                $this->form_validation->set_rules('name','name','trim|required');
+                $this->form_validation->set_rules('quantity','quantity','trim|required');
+                if ($this->form_validation->run() == FALSE) {
+                    $this->load->view('Doctor/viewAddInventory');
+                }
+                else{
+                    
+                    $data = array(
+                            'Id' => $this->input->post('id'),
+                            'Name' => $this->input->post('name'),
+                            'Quantity' => $this->input->post('quantity'),
+                            );
+                    $this->load->model('Doctor_model');
+                    $this->Doctor_model->addInventroy($data);
+                    $data['message'] = 'Data Inserted Successfully';
+                }
+        }
+        public function viewUpdateInventory(){
+                $this->load->view('doc_navbar');
+                $this->load->view('Doctor/update_inventory');
+                
+        }
+        public function updateInventory(){
+                $this->form_validation->set_rules('id','id','trim|required');
+                $this->form_validation->set_rules('name','name','trim|required');
+                $this->form_validation->set_rules('quantity','quantity','trim|required');
+                $id = $this->input->post('id');
+                $data = array(
+                            'Name' => $this->input->post('name'),
+                            'Quantity' => $this->input->post('quantity'),
+                            );
+                $this->load->model('Doctor_model');
+                $this->Doctor_model->updateInventroy($id,$data);
+        }
 }
 
 ?>
