@@ -3,7 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class Doctor_model extends CI_Model{
 	
-<<<<<<< HEAD
+
+public function __construct() {
+		parent::__construct();
+		$this->load->database();
+	}
+
         public function getInventory(){
             $query = $this->db->get('inventory');
             return $query->result();
@@ -23,11 +28,8 @@ Class Doctor_model extends CI_Model{
             redirect('Doctor/inventoryManage');
             
         }
-=======
-	public function __construct() {
-		parent::__construct();
-		$this->load->database();
-	}
+
+	
 
 	public $success = 20;
 
@@ -123,6 +125,6 @@ $this->db->insert('services');
 
 
 }
->>>>>>> 5d8c8ccf052c86e3b15345208c9db08e17684c9a
+
 
 ?>
