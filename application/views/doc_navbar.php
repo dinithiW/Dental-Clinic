@@ -102,9 +102,9 @@
 
                 <li class="nav-item"><a href=<?= base_url("Doctor/services")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>Manage services</a></li>
 
-                 <li class="nav-item"><a href=<?= base_url("Doctor/viewAddInventory")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>Manage inventory</a></li> 
+                 <li class="nav-item"><a href=<?= base_url("Doctor/inventoryManage")?> class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>Manage inventory</a></li> 
 
-                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>View reports</a></li>
+                  <li class="nav-item"><a href="<?php echo base_url("Doctor/viewAllPayments")?>" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>All payments</a></li> 
 
               </ul>
             </div>

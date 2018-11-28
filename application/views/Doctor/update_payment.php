@@ -74,13 +74,32 @@
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
 			<form class="form-horizontal" action="<?php echo base_url().'Doctor/updatePayment'?>" method = "POST">
 
-				  <div class="form-group">
+
+				 <div class="form-group">
+				    <label class="control-label col-sm-2" for="pwd">Patient ID</label>
+				    <div class="col-sm-8"> 
+				      <select class="form-control" id="" name = "patient_id" >
+
+				  <option value = "4">4</option>
+				  	<option value = "5">5</option>
+				  		<option value = "6">6</option>
+				  			<option value = "8">8</option>
+				  				<option value = "9">9</option>
+				  					<option value = "10">10</option>
+
+                    
+                      
+                     
+        
+      </select>
+
+				  <!-- <div class="form-group">
 				  	<br/>
 				    <label class="control-label col-sm-2" for="email">Patient ID</label>
 				    <div class="col-sm-8">
 				      <input type="text" class="form-control" id="email" placeholder="Enter the patient ID" name = "patient_id" required>
 				    </div>
-
+ -->
 				  </div>
 				  <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Date</label>
@@ -118,7 +137,15 @@
 				    </div>
 				  </div>
 
-				  
+				  <div class="form-group">
+				  	
+				    <label class="control-label col-sm-2" for="email">Remarks</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="email" placeholder="Enter remarks" name = "remarks" >
+				    </div>
+
+				  </div>
+
 				  <div class="form-group"> 
 				    <div class="col-sm-offset-2 col-sm-10">
 				      <button type="submit" class="btn btn-default">Submit</button>

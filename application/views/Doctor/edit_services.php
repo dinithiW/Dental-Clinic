@@ -129,7 +129,7 @@
 				    </div>
 				  </div>
 
-				  <?php
+				  <!-- <?php
 				  $this->load->model('Doctor_model');
 				  $vari = $this->Doctor_model->success;
 				  
@@ -146,7 +146,7 @@
   </div>
 				<?php  }
 
-				  ?>
+				  ?> -->
 </form>
 			
 		</div>

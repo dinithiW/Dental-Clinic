@@ -26,12 +26,22 @@ public function __construct() {
         }
         public function updateInventroy($id,$data){
             $this->db->where('id',$id);
-            $this->db->update('inventory',$data);
+
+            $this->db->replace('inventory',$data);
             redirect('Doctor/inventoryManage');
             
         }
 
+        public function getPatientIds(){
+        	$this->db->select('patient_id');
+        //$this->db->select('date');
+        //$this->db->select('remarks');
+        $this->db->from('patients');
+        //$this->db->where('patient_id',$patient_id);
 
+        $query = $this->db->get();
+        return $query->result();
+        }
 	
 
 
@@ -106,7 +116,13 @@ $this->db->replace('services', $data);
 	return $success;
 	}
 
-	
+	public function allPayments(){
+		//$today=$this->input->post("date");
+        //$time=$this->input->post("time_slot");
+        //$this->load->database("");
+        $query = $this->db->get('payments_patients');
+        return $query->result();
+	}
 
 	public function viewPayments(){
 		$patient_id = $_POST['patient_id'];
@@ -136,6 +152,7 @@ $this->db->replace('services', $data);
 
 		$patient_id = $_POST['patient_id'];
 		$date = $_POST['apt_date'];
+		$remarks = $_POST['remarks'];
 		//$service_name = $_POST['service_name'];
 		/*echo"$service_name";
 		$this->db->select('service_id');
@@ -151,12 +168,24 @@ $this->db->replace('services', $data);
         
 );
 
+        $array2 = array(
+
+        	'patient_id' => $patient_id,
+        	'treatment'=> $_POST['service_name'],
+        	'date' => $date,
+        	'remarks' => $remarks
+        	);
+
 $this->db->set($array);
 $this->db->insert('payments');
 
-
+$this->db->set($array2);
+$this->db->insert('patient_records');
 	}
 	
+	public function showPayments(){
+
+	}
 	public function deleteService($service_id){
 		$this->db->where('service_id', $service_id);
 		$this->db->delete('services');

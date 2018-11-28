@@ -63,6 +63,7 @@ class Doctor extends CI_Controller {
                 $this->form_validation->set_rules('quantity','quantity','trim|required');
                 $id = $this->input->post('id');
                 $data = array(
+                			'id' => $id,
                             'Name' => $this->input->post('name'),
                             'Quantity' => $this->input->post('quantity'),
                             );
@@ -118,6 +119,13 @@ class Doctor extends CI_Controller {
 		
 	}
 
+	public function viewAllPayments(){
+		$this->load->model('Doctor_model');
+		$data['records'] = $this->Doctor_model->allPayments();
+
+		$this->load->view('doc_navbar');
+		$this->load->view('Doctor/view_all_payments',$data);
+	}
 	public function viewServices(){
 		
 		$this->load->model('Doctor_model');
@@ -143,7 +151,7 @@ class Doctor extends CI_Controller {
 		$data['update'] = true;
 		$data['service_id'] = $service_id;
 		$data['records'] = $this->Doctor_model->updateService($service_id);
-		$data['vari'] = $this->Doctor_model->success;
+		//$data['vari'] = $this->Doctor_model->success;
 
 		$this->viewServices();
 		
