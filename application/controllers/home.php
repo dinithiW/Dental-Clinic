@@ -18,6 +18,7 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('email','Email','trim|required|valid_email');
         $this->form_validation->set_rules('psw','Password','trim|required');
         $this->form_validation->set_rules('cpsw','Confirm Password','trim|required|matches[psw]');
+        $this->form_validation->set_rules('uname','Username','trim|required|edit_unique[dental_clinic.users.'.$username.']');
        
         if($this->form_validation->run()==False){
            $data=array(

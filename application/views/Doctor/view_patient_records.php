@@ -110,7 +110,7 @@
                 <div class="box-body table-responsive no-padding">
                   <table class="table table-hover" >
                     <tr>
-                      <th>Treatment</th>
+                      <th>Treatment ID</th>
                       <th>Date</th>
                       <th>Remarks</th>
                       

@@ -37,7 +37,7 @@ public function __construct() {
         //$this->db->select('date');
         //$this->db->select('remarks');
         $this->db->from('patients');
-        //$this->db->where('patient_id',$patient_id);
+        $this->db->where('patient_id',$patient_id);
 
         $query = $this->db->get();
         return $query->result();
@@ -149,7 +149,7 @@ $this->db->replace('services', $data);
 		$pieces = explode(" ", $_POST['service_name']);
 		//echo $pieces[0]; // piece1
 		$service_id= $pieces[1]; // piece2
-
+		echo"$service_id";
 		$patient_id = $_POST['patient_id'];
 		$date = $_POST['apt_date'];
 		$remarks = $_POST['remarks'];
@@ -171,7 +171,7 @@ $this->db->replace('services', $data);
         $array2 = array(
 
         	'patient_id' => $patient_id,
-        	'treatment'=> $_POST['service_name'],
+        	'treatment'=> $service_id,
         	'date' => $date,
         	'remarks' => $remarks
         	);

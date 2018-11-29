@@ -74,18 +74,18 @@
 		<div class="content" style="background: #f0f0f0" id="reserve-service">
 			<form class="form-horizontal" action="<?php echo base_url().'Doctor/updatePayment'?>" method = "POST">
 
-
+<br>
 				 <div class="form-group">
 				    <label class="control-label col-sm-2" for="pwd">Patient ID</label>
 				    <div class="col-sm-8"> 
 				      <select class="form-control" id="" name = "patient_id" >
 
-				  <option value = "4">4</option>
-				  	<option value = "5">5</option>
+				  <!-- <option value = "4">4</option> -->
+				  	<!-- <option value = "5">5</option> -->
 				  		<option value = "6">6</option>
 				  			<option value = "8">8</option>
 				  				<option value = "9">9</option>
-				  					<option value = "10">10</option>
+				  					<!-- <option value = "10">10</option> -->
 
                     
                       
